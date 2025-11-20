@@ -142,3 +142,4 @@ to load the new video into the Blackbox Explorer.
 ## License
 
 This project is licensed under GPLv3.
+# EC-BlackBox-Viewer.
