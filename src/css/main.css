@@ -141,6 +141,15 @@ a.disabled {
     padding-bottom: 0px;
   }
 
+  .flight-selector-header {
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 5px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
   button.btn {
     padding: 3px 6px;
     font-size: 12px;
@@ -345,13 +354,34 @@ html:not(.has-log):not(.has-video) .header-pane {
 }
 
 .log-open-legend-dialog {
-  float: right;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 9999;
   color: #bbb;
-  padding-right: 14px;
-  padding-top: 8px;
-  font-size: 14px;
+  font-size: 18px;
   display: none;
   cursor: pointer;
+}
+
+html.isECHO .log-open-legend-dialog {
+    color: var(--echo-primary);
+    text-shadow: 0 0 5px var(--echo-primary-dim);
+    background: rgba(5, 5, 8, 0.8);
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid var(--echo-primary-dim);
+    transition: all 0.2s ease;
+    top: 80px !important;
+    right: 20px !important;
+    z-index: 2147483647 !important;
+}
+
+html.isECHO .log-open-legend-dialog:hover {
+    color: #fff;
+    border-color: var(--echo-primary);
+    box-shadow: 0 0 15px var(--echo-primary-glow);
+    transform: scale(1.1);
 }
 
 .log-graph-legend {
@@ -361,6 +391,77 @@ html:not(.has-log):not(.has-video) .header-pane {
   overflow-y: auto;
   overflow-x: hidden;
   margin-bottom: 1em;
+}
+
+html.isECHO .log-graph-legend {
+  background: rgba(5, 5, 8, 0.9);
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+}
+
+html.isECHO .log-graph-legend .field-name {
+  color: var(--echo-text-main);
+  font-family: var(--echo-font-mono);
+  text-shadow: 0 0 3px rgba(0, 243, 255, 0.3);
+}
+
+/* ECHO CORP - View Tables Page Styling */
+html.isECHO .log-field-values {
+    background: rgba(5, 5, 8, 0.95) !important;
+    border: 1px solid var(--echo-primary-dim) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    color: var(--echo-text-main);
+    backdrop-filter: blur(5px);
+}
+
+html.isECHO .log-field-values h4 {
+    background-color: transparent !important;
+    color: var(--echo-primary);
+    font-family: var(--echo-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--echo-primary-dim);
+    padding-bottom: 10px;
+    margin-top: 10px;
+    text-shadow: 0 0 5px var(--echo-primary-dim);
+}
+
+html.isECHO .log-field-values table {
+    background-color: transparent !important;
+    color: var(--echo-text-main);
+}
+
+html.isECHO .log-field-values th {
+    color: var(--echo-secondary);
+    border-bottom: 1px solid var(--echo-primary-dim);
+    font-family: var(--echo-font-mono);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+html.isECHO .log-field-values td {
+    border-top: 1px solid rgba(0, 243, 255, 0.1);
+    font-family: var(--echo-font-mono);
+}
+
+html.isECHO .log-field-values tr:nth-child(even) {
+    background-color: rgba(0, 243, 255, 0.03) !important;
+}
+
+html.isECHO .log-field-values tr:hover {
+    background-color: rgba(0, 243, 255, 0.1) !important;
+    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+html.isECHO .log-field-values a {
+    text-decoration: none;
+}
+
+html.isECHO .log-field-values a:hover h4 {
+    color: #fff;
+    text-shadow: 0 0 10px var(--echo-primary);
 }
 
 .log-graph {
@@ -484,6 +585,25 @@ html.has-log .log-graph-config {
   margin: 0.5em 0;
 }
 
+html.isECHO .setup-parameters,
+html.isECHO .setup-parameter {
+    background: rgba(10, 10, 15, 0.4);
+    border-left: 2px solid var(--echo-primary);
+    padding: 10px;
+    margin: 0.8em 0;
+}
+
+html.isECHO .setup-parameter label,
+html.isECHO .setup-parameters label {
+    color: var(--echo-primary);
+    font-weight: 600;
+}
+
+html.isECHO .setup-parameter dd,
+html.isECHO .setup-parameters dd {
+    color: var(--echo-text-main);
+}
+
 #graphCanvas {
   position: absolute;
   top: 0;
@@ -491,6 +611,22 @@ html.has-log .log-graph-config {
   width: 100%;
   height: 100%;
   background-color: black;
+}
+
+html.isECHO #graphCanvas {
+  background: 
+    linear-gradient(rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(ellipse at top, #001520 0%, #000000 100%);
+  background-size: 50px 50px, 50px 50px, 100% 100%;
+}
+
+html.isECHO.has-video #graphCanvas {
+  background: 
+    linear-gradient(rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px;
+  background-color: transparent;
 }
 
 #craftCanvas,
@@ -502,6 +638,12 @@ html.has-log .log-graph-config {
   left: 0;
   /* pointer-events:none; */ /* Allow the user to drag the graph lines instead of hitting the craft */
   display: none;
+}
+
+html.isECHO #craftCanvas,
+html.isECHO #analyserCanvas,
+html.isECHO #stickCanvas {
+  filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.5));
 }
 
 html.has-craft #craftCanvas,
@@ -976,7 +1118,7 @@ html.has-video .log-graph video {
   height: 100%;
 }
 html.has-video #graphCanvas {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: transparent; /* allow underlying video to show */
 }
 
 html .view-video,
@@ -1096,6 +1238,22 @@ html.has-log .log-seek-bar {
   padding-right: 15px;
 }
 
+html.isECHO.has-log .log-seek-bar,
+html.isECHO.has-video .log-seek-bar {
+  background: linear-gradient(180deg, rgba(5, 5, 8, 0.95) 0%, rgba(8, 8, 12, 0.98) 100%);
+  border-top: 1px solid var(--echo-primary-dim);
+  box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.8);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  backdrop-filter: blur(10px);
+}
+
+html.isECHO.has-log .log-seek-bar canvas,
+html.isECHO.has-video .log-seek-bar canvas {
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
 .log-workspace-panel {
   width: 200px;
 }
@@ -1200,6 +1358,47 @@ html.has-log .video-top-controls {
   white-space: nowrap;
 }
 
+/* ECHO CORP Control Panel Enhancement */
+html.isECHO.has-log .video-top-controls,
+html.isECHO.has-video .video-top-controls {
+  background: linear-gradient(180deg, rgba(5, 5, 8, 0.98) 0%, rgba(10, 10, 15, 0.95) 100%);
+  border-bottom: 1px solid var(--echo-primary-dim);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 8px 0;
+}
+
+html.isECHO.has-log .video-top-controls h4,
+html.isECHO.has-video .video-top-controls h4 {
+  color: var(--echo-primary);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 5px 0;
+  text-shadow: 0 0 5px var(--echo-primary-dim);
+}
+
+html.isECHO.has-log .video-top-controls li,
+html.isECHO.has-video .video-top-controls li {
+  position: relative;
+}
+
+html.isECHO.has-log .video-top-controls li::after,
+html.isECHO.has-video .video-top-controls li::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 1px;
+  height: 80%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.3), transparent);
+}
+
+html.isECHO.has-log .video-top-controls li:last-child::after,
+html.isECHO.has-video .video-top-controls li:last-child::after {
+  display: none;
+}
+
 .playback-rate-control,
 .graph-zoom-control {
   width: 200px;
@@ -1216,6 +1415,36 @@ html.has-log .video-top-controls {
 .noUi-handle:after,
 .noUi-handle:before {
   visibility: hidden;
+}
+
+/* ECHO CORP Slider Styling */
+html.isECHO .noUi-background {
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+html.isECHO .noUi-connect {
+  background: linear-gradient(90deg, var(--echo-primary), var(--echo-secondary));
+  box-shadow: 0 0 10px var(--echo-primary-dim);
+}
+
+html.isECHO .noUi-handle {
+  background: rgba(0, 243, 255, 0.2);
+  border: 2px solid var(--echo-primary);
+  box-shadow: 0 0 15px var(--echo-primary-glow);
+  color: var(--echo-primary);
+  font-family: var(--echo-font-mono);
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+html.isECHO .noUi-target {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 243, 255, 0.2);
+  border-radius: 2px;
 }
 
 .override-button-group button {
@@ -1366,11 +1595,18 @@ html.isCF .navbar-logo img {
 }
 
 html.isBF .navbar-logo img {
-  content: url("/images/light-wide-2.svg");
-  width: 282px;
-  height: 50px;
-  margin-left: 0 !important;
+  /* content: url("/images/light-wide-2.svg"); */
+  /* width: 282px; */
+  /* height: 50px; */
+  /* margin-left: 0 !important; */
 }
+
+/* html.isECHO .navbar-logo img {
+    content: none !important;
+    width: auto !important;
+    height: 40px !important;
+    margin-left: 0 !important;
+} */
 
 html.isINAV .navbar-logo img {
   content: url(".././images/inav_logo_white.png");
@@ -1390,9 +1626,18 @@ html.isINAV .navbar-logo img {
 .navbar-logo a {
   padding: 0;
   position: absolute;
-  top: 32%;
-  left: 75%;
-  width: 100%;
+  top: 60%;
+  left: 320px;
+  transform: translateY(-50%);
+  width: auto;
+  white-space: nowrap;
+}
+
+html.isECHO .navbar-logo a {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
 }
 
 .navbar-logo span {
@@ -1801,4 +2046,808 @@ dialog h3 {
 
 .actual-lograte {
   color: red;
+}
+
+/* ==========================================================================
+   ECHO CORP - CYBERPUNK NEON THEME (AAA QUALITY OVERHAUL)
+   ========================================================================== */
+
+/* --- Variables & Design Tokens --- */
+:root {
+    --echo-bg-deep: #050507;
+    --echo-bg-surface: rgba(15, 15, 20, 0.85);
+    --echo-bg-glass: rgba(10, 10, 12, 0.6);
+    
+    --echo-primary: #00f3ff;
+    --echo-primary-dim: rgba(0, 243, 255, 0.3);
+    --echo-primary-glow: rgba(0, 243, 255, 0.6);
+    
+    --echo-secondary: #bc13fe;
+    --echo-secondary-dim: rgba(188, 19, 254, 0.3);
+    
+    --echo-text-main: #e0e0e0;
+    --echo-text-muted: #8a8a9b;
+    
+    --echo-border-radius: 2px; /* Sharp, techy corners */
+    --echo-border-glow: 0 0 10px rgba(0, 243, 255, 0.15);
+    
+    --echo-font-display: 'Segoe UI', 'Roboto', sans-serif; /* Placeholder for a tech font */
+    --echo-font-mono: 'Consolas', 'Monaco', monospace;
+}
+
+/* --- Global Resets & Typography --- */
+html.isECHO {
+    height: 100%;
+    background-color: var(--echo-bg-deep);
+    background-image: 
+        radial-gradient(circle at 50% 0%, #1a1a2e 0%, transparent 60%),
+        linear-gradient(0deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
+}
+
+html.isECHO body {
+    background: transparent;
+    color: var(--echo-text-main);
+    font-family: var(--echo-font-display);
+    letter-spacing: 0.5px;
+}
+
+html.isECHO h1, html.isECHO h2, html.isECHO h3, html.isECHO h4, html.isECHO h5 {
+    color: var(--echo-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--echo-primary-dim);
+    font-weight: 600;
+}
+
+/* --- Navbar (HUD Header) --- */
+html.isECHO .navbar-inverse {
+    background-color: rgba(5, 5, 7, 0.95);
+    border: none;
+    border-bottom: 1px solid var(--echo-primary-dim);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+html.isECHO .navbar-logo {
+    position: absolute !important;
+    display: flex !important;
+    align-items: center;
+    gap: 20px;
+    left: 190px !important;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    height: auto;
+}
+
+html.isECHO .navbar-logo > div {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+html.isECHO .navbar-logo img {
+    content: none !important;
+    width: auto !important;
+    height: 40px !important;
+    margin: 0 !important;
+    float: none !important;
+    display: block !important;
+    position: static !important;
+}
+
+html.isECHO .navbar-logo span.echo-brand {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    color: var(--echo-primary);
+    font-family: var(--echo-font-display);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px var(--echo-primary);
+    white-space: nowrap;
+}
+
+html.isECHO .navbar-logo a.log-filename {
+    color: var(--echo-secondary);
+    font-family: var(--echo-font-mono);
+    font-size: 12px;
+    text-shadow: 0 0 5px var(--echo-secondary-dim);
+    position: relative !important;
+    top: 30px;
+    transform: none !important;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+html.isECHO .navbar-inverse .navbar-nav > li > a {
+    color: var(--echo-text-muted);
+    transition: all 0.3s ease;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+html.isECHO .navbar-inverse .navbar-nav > li > a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Buttons (Cyber-Controls) --- */
+html.isECHO .btn {
+    border-radius: var(--echo-border-radius);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+html.isECHO .btn-primary {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--echo-primary);
+    color: var(--echo-primary);
+    box-shadow: 0 0 10px var(--echo-primary-dim);
+}
+
+html.isECHO .btn-primary:hover {
+    background: var(--echo-primary);
+    color: #000;
+    box-shadow: 0 0 20px var(--echo-primary-glow);
+    border-color: var(--echo-primary);
+}
+
+html.isECHO .btn-default {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    color: var(--echo-text-main);
+}
+
+html.isECHO .btn-default:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* --- Jumbotron (System Welcome) --- */
+html.isECHO .jumbotron {
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.9) 0%, rgba(5, 5, 8, 0.95) 100%);
+    border: 1px solid var(--echo-primary-dim);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 243, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+}
+
+/* Tech decoration lines */
+html.isECHO .jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--echo-primary), transparent);
+}
+
+html.isECHO .jumbotron::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0; width: 20px; height: 20px;
+    border-bottom: 2px solid var(--echo-primary);
+    border-right: 2px solid var(--echo-primary);
+}
+
+html.isECHO .jumbotron h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: -webkit-linear-gradient(#fff, var(--echo-primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none; /* Override default */
+    filter: drop-shadow(0 0 5px var(--echo-primary-dim));
+}
+
+html.isECHO .jumbotron p {
+    color: var(--echo-text-muted);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- Panels (Data Modules) --- */
+html.isECHO .panel {
+    background: var(--echo-bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.isECHO .panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 243, 255, 0.1);
+    border-color: var(--echo-primary-dim);
+}
+
+html.isECHO .panel-default > .panel-heading {
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--echo-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+    padding: 15px;
+}
+
+html.isECHO .panel-body {
+    padding: 20px;
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+html.isECHO .panel-body a {
+    color: var(--echo-secondary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--echo-secondary);
+}
+
+html.isECHO .panel-body a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px var(--echo-secondary);
+    border-bottom-style: solid;
+}
+
+/* --- Dialogs & Modals (Holographic Windows) --- */
+html.isECHO .modal-content {
+    background: rgba(10, 12, 16, 0.95);
+    border: 1px solid var(--echo-primary);
+    box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+    color: var(--echo-text-main);
+}
+
+html.isECHO .modal-header {
+    border-bottom: 1px solid var(--echo-primary-dim);
+    background: rgba(0, 243, 255, 0.05);
+}
+
+html.isECHO .modal-footer {
+    border-top: 1px solid var(--echo-primary-dim);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+html.isECHO .close {
+    color: var(--echo-primary);
+    text-shadow: 0 0 5px var(--echo-primary);
+    opacity: 0.8;
+}
+
+html.isECHO .close:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+/* --- Inputs & Forms (Data Entry) --- */
+html.isECHO input[type="text"],
+html.isECHO input[type="number"],
+html.isECHO select,
+html.isECHO .form-control {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid #333 !important;
+    color: var(--echo-primary) !important;
+    font-family: var(--echo-font-mono) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8) !important;
+}
+
+html.isECHO input:focus,
+html.isECHO select:focus,
+html.isECHO .form-control:focus {
+    border-color: var(--echo-primary) !important;
+    box-shadow: 0 0 8px var(--echo-primary-dim), inset 0 0 5px rgba(0, 0, 0, 0.8) !important;
+    outline: none;
+}
+
+/* --- Tables (Data Grids) --- */
+html.isECHO .table {
+    background: transparent;
+}
+
+html.isECHO .table > thead > tr > th {
+    border-bottom: 2px solid var(--echo-primary-dim);
+    color: var(--echo-text-muted);
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+html.isECHO .table > tbody > tr > td {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--echo-text-main);
+    font-family: var(--echo-font-mono);
+}
+
+/* --- Status Bar (System Footer) --- */
+html.isECHO #status-bar {
+    background: #08080a;
+    border-top: 1px solid var(--echo-primary-dim);
+    color: var(--echo-text-muted);
+    font-family: var(--echo-font-mono);
+    font-size: 11px;
+}
+
+html.isECHO #status-bar div {
+    border-right: 1px solid #222;
+}
+
+html.isECHO #status-bar span {
+    color: var(--echo-primary);
+}
+
+/* --- Scrollbars --- */
+html.isECHO ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #050505;
+}
+
+html.isECHO ::-webkit-scrollbar-thumb {
+    background: #333;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+html.isECHO ::-webkit-scrollbar-thumb:hover {
+    background: var(--echo-primary-dim);
+    border-color: var(--echo-primary);
+}
+
+/* --- Specific Overrides for Graph/Config --- */
+html.isECHO .gui_box {
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid var(--echo-primary-dim);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 243, 255, 0.03);
+    backdrop-filter: blur(3px);
+}
+
+html.isECHO .gui_box_titlebar {
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.15), rgba(0, 243, 255, 0.05));
+    color: var(--echo-primary);
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+    text-shadow: 0 0 5px var(--echo-primary-dim);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-left: 10px;
+}
+
+html.isECHO .header-dialog .parameter th {
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--echo-primary);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-color: rgba(0, 243, 255, 0.1);
+}
+
+html.isECHO .header-dialog .parameter label {
+    background: rgba(0, 0, 0, 0.3);
+    color: #ccc;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+html.isECHO .header-dialog .cf tr {
+    background: rgba(5, 5, 8, 0.5);
+}
+
+html.isECHO .header-dialog .cf input,
+html.isECHO .header-dialog .cf select {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-color: rgba(0, 243, 255, 0.3) !important;
+    color: var(--echo-primary) !important;
+    font-family: var(--echo-font-mono) !important;
+}
+
+html.isECHO .header-dialog .cf input:focus,
+html.isECHO .header-dialog .cf select:focus {
+    border-color: var(--echo-primary) !important;
+    box-shadow: 0 0 8px var(--echo-primary-dim) !important;
+}
+
+html.isECHO .log-graph {
+    border-top: 1px solid var(--echo-primary-dim);
+    position: relative;
+}
+
+html.isECHO:not(.has-video) .log-graph {
+    background: 
+        linear-gradient(rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+        radial-gradient(ellipse at top, #001520 0%, #000000 100%);
+    background-size: 50px 50px, 50px 50px, 100% 100%;
+    box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+html.isECHO .log-graph::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--echo-primary), transparent);
+    box-shadow: 0 0 10px var(--echo-primary);
+}
+
+html.isECHO .log-graph video {
+  z-index: 1 !important; /* behind graphs but above background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000; /* visible even if transparent frames */
+  pointer-events: none;
+}
+
+html.isECHO .log-graph canvas {
+  position: relative;
+  z-index: 2; /* above video */
+}
+
+html.isECHO .log-graph-config {
+    background: linear-gradient(180deg, rgba(5, 5, 8, 0.95) 0%, rgba(10, 10, 12, 0.98) 100%);
+    border-left: 1px solid var(--echo-primary-dim);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+html.isECHO .log-graph-config h2 {
+    color: var(--echo-primary);
+    text-shadow: 0 0 10px var(--echo-primary-dim);
+    border-bottom: 1px solid var(--echo-primary-dim);
+    padding-bottom: 10px;
+}
+
+html.isECHO .log-graph-config h3 {
+    color: var(--echo-secondary);
+    text-shadow: 0 0 8px var(--echo-secondary-dim);
+    border-left: 3px solid var(--echo-secondary);
+    padding-left: 10px;
+    transition: all 0.3s ease;
+}
+
+html.isECHO .log-graph-config h3:hover {
+    color: #fff;
+    text-shadow: 0 0 15px var(--echo-secondary);
+    border-left-color: var(--echo-primary);
+}
+
+html.isECHO .flight-selector-header {
+    font-family: var(--echo-font-display);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--echo-primary);
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid var(--echo-primary-dim);
+    border-radius: 2px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--echo-primary-dim);
+}
+
+html.isECHO .config-graph {
+    background: rgba(10, 10, 15, 0.6);
+    border: 1px solid rgba(188, 19, 254, 0.2);
+    border-radius: 2px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(188, 19, 254, 0.05);
+}
+
+html.isECHO .config-graph h4 {
+    color: var(--echo-primary);
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+html.isECHO .config-graph-field-header {
+    color: var(--echo-secondary);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+html.isECHO .config-graph-field {
+    color: var(--echo-text-main);
+}
+
+html.isECHO .config-graph-field label {
+    color: var(--echo-text-muted);
+}
+
+html.isECHO .config-graph table {
+    border-collapse: separate;
+    border-spacing: 0 3px;
+}
+
+html.isECHO .config-graph table tr {
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 0.2s ease;
+}
+
+html.isECHO .config-graph table tr:hover {
+    background: rgba(188, 19, 254, 0.1);
+}
+
+html.isECHO .config-graph table td,
+html.isECHO .config-graph table th {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html.isECHO .config-graph-field input,
+html.isECHO .config-graph-field select {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid rgba(188, 19, 254, 0.3) !important;
+    color: var(--echo-secondary) !important;
+    font-family: var(--echo-font-mono) !important;
+}
+
+html.isECHO .config-graph-field input:focus,
+html.isECHO .config-graph-field select:focus {
+    border-color: var(--echo-secondary) !important;
+    box-shadow: 0 0 10px var(--echo-secondary-dim) !important;
+}
+
+html.isECHO .config-graph h4 button {
+    background: transparent;
+    border: 1px solid var(--echo-secondary);
+    color: var(--echo-secondary);
+    padding: 3px 8px;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+html.isECHO .config-graph h4 button:hover {
+    background: var(--echo-secondary);
+    color: #000;
+    box-shadow: 0 0 10px var(--echo-secondary-dim);
+}
+
+/* --- Animations --- */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px var(--echo-primary-dim); }
+    50% { box-shadow: 0 0 15px var(--echo-primary-glow); }
+    100% { box-shadow: 0 0 5px var(--echo-primary-dim); }
+}
+
+html.isECHO .btn-primary.pulse {
+    animation: pulse-glow 2s infinite;
+}
+
+/* --- Screen Effects (CRT/Hologram) --- */
+html.isECHO .scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+}
+
+html.isECHO::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+    z-index: 9998;
+    pointer-events: none;
+}
+
+/* --- Welcome Page Hero Redesign --- */
+html.isECHO .welcome-pane {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0 40px;
+}
+
+html.isECHO .hero-section {
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+}
+
+html.isECHO .hero-logo {
+    font-family: var(--echo-font-display);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 8px;
+    color: var(--echo-primary);
+    text-shadow: 0 0 20px var(--echo-primary-glow), 0 0 40px var(--echo-primary-dim);
+    margin-bottom: 10px;
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+html.isECHO .hero-title {
+    font-family: var(--echo-font-display);
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    margin: 0 0 20px;
+    background: linear-gradient(135deg, var(--echo-primary) 0%, var(--echo-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+}
+
+html.isECHO .hero-subtitle {
+    font-family: var(--echo-font-mono);
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--echo-text-muted);
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+html.isECHO .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+html.isECHO .action-card {
+    background: var(--echo-bg-glass);
+    border: 1px solid var(--echo-primary-dim);
+    border-radius: 8px;
+    padding: 30px 25px;
+    width: 280px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+html.isECHO .action-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--echo-primary), var(--echo-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+html.isECHO .action-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--echo-primary);
+    box-shadow: 0 12px 48px rgba(0, 243, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+html.isECHO .action-card:hover::before {
+    opacity: 0.1;
+}
+
+html.isECHO .action-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    filter: grayscale(0.3) drop-shadow(0 0 10px rgba(0, 243, 255, 0.5));
+}
+
+html.isECHO .action-card h3 {
+    font-family: var(--echo-font-display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--echo-primary);
+    margin: 15px 0 10px;
+    text-transform: uppercase;
+}
+
+html.isECHO .action-card p {
+    font-size: 13px;
+    color: var(--echo-text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 50px;
+}
+
+html.isECHO .action-card .btn {
+    width: 100%;
+    font-family: var(--echo-font-display);
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 12px 20px;
+}
+
+html.isECHO .btn-csv-convert {
+    background: linear-gradient(135deg, #00ff87 0%, #00d4aa 100%);
+    border-color: #00ff87;
+    color: #000;
+}
+
+html.isECHO .btn-csv-convert:hover {
+    background: linear-gradient(135deg, #00ffaa 0%, #00e4bb 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 135, 0.5);
+}
+
+html.isECHO .btn-info {
+    background: linear-gradient(135deg, var(--echo-secondary) 0%, #d946ef 100%);
+    border-color: var(--echo-secondary);
+}
+
+html.isECHO .btn-info:hover {
+    background: linear-gradient(135deg, #d946ef 0%, var(--echo-secondary) 100%);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.5);
+}
+
+html.isECHO .features-section {
+    margin-top: 80px;
+    padding-bottom: 40px;
+}
+
+html.isECHO .feature-card {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+html.isECHO .feature-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.4));
+}
+
+html.isECHO .feature-card h4 {
+    font-family: var(--echo-font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--echo-primary);
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+html.isECHO .feature-card p {
+    font-size: 12px;
+    color: var(--echo-text-muted);
+    line-height: 1.6;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        text-shadow: 0 0 20px var(--echo-primary-glow), 0 0 40px var(--echo-primary-dim);
+    }
+    50% {
+        text-shadow: 0 0 30px var(--echo-primary-glow), 0 0 60px var(--echo-primary-dim), 0 0 80px var(--echo-primary-dim);
+    }
 }

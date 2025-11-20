@@ -433,6 +433,12 @@ function BlackboxLogViewer() {
 
     logIndexContainer.empty();
 
+    // Add "Choose Flight" header if multiple logs
+    if (logCount > 1) {
+      const flightHeader = $('<div class="flight-selector-header">CHOOSE FLIGHT</div>');
+      logIndexContainer.append(flightHeader);
+    }
+
     const logIndexPicker = $(
       '<select class="log-index form-control no-wheel">'
     );
@@ -1237,6 +1243,7 @@ function BlackboxLogViewer() {
     // Get Latest Version Information
     $("#viewer-version").text(`You are using version ${__APP_VERSION__}`);
     $(".viewer-version", statusBar).text(`v${__APP_VERSION__}`);
+    /*
     try {
       $.getJSON(
         "https://api.github.com/repos/betaflight/blackbox-log-viewer/releases/latest",
@@ -1255,6 +1262,8 @@ function BlackboxLogViewer() {
       console.log("Cannot get latest version information");
       $(".viewer-download").hide();
     }
+    */
+    $(".viewer-download").hide();
 
     graphLegend = new GraphLegend(
       $(".log-graph-legend"),
@@ -1327,6 +1336,66 @@ function BlackboxLogViewer() {
       loadFiles(files);
 
       // Clear the files, in this way we can open a file with the same path/name again
+      e.target.value = "";
+    });
+
+    // CSV Conversion on welcome page
+    $(".file-csv-convert").change(function (e) {
+      const files = e.target.files;
+      
+      if (files.length > 0 && files[0].name.match(/\.(BBL|TXT|CFL|BFL|LOG)$/i)) {
+        const file = files[0];
+        $("#loading-file-text").text("Converting " + file.name + " to CSV...").removeClass("hiddenElement");
+        
+        // Load the log file silently
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const bytes = e.target.result;
+          const flightLogDataArray = new Uint8Array(bytes);
+          
+          try {
+            // Parse the log using FlightLog constructor
+            const tempLog = new FlightLog(flightLogDataArray);
+            
+            // Open the first valid log in the file
+            let logOpened = false;
+            for (let i = 0; i < tempLog.getLogCount(); i++) {
+              if (tempLog.openLog(i)) {
+                logOpened = true;
+                break;
+              }
+            }
+            
+            if (!logOpened) {
+              throw new Error("No valid logs found in file");
+            }
+            
+            // Set the flight log temporarily
+            const originalLog = flightLog;
+            flightLog = tempLog;
+            
+            // Export to CSV
+            exportCsv(file.name);
+            
+            $("#loading-file-text").text("CSV exported successfully!").delay(2000).fadeOut(function() {
+              $(this).addClass("hiddenElement").show();
+            });
+            
+            // Restore original log (if any)
+            flightLog = originalLog;
+            
+          } catch(err) {
+            $("#loading-file-text").text("Error: " + err.message);
+            setTimeout(function() {
+              $("#loading-file-text").addClass("hiddenElement").text("");
+            }, 4000);
+          }
+        };
+        
+        reader.readAsArrayBuffer(file);
+      }
+      
+      // Clear the files
       e.target.value = "";
     });
 

@@ -26,7 +26,7 @@ export function FlightLogGrapher(
   let PID_P = 0,
     PID_I = 1,
     PID_D = 2,
-    DEFAULT_FONT_FACE = "Verdana, Arial, sans-serif",
+    DEFAULT_FONT_FACE = "'Segoe UI', 'Roboto', sans-serif",
     drawingParams = {
       fontSizePIDTableLabel: null,
       fontSizeAxisLabel: null,
@@ -39,18 +39,18 @@ export function FlightLogGrapher(
     // CRAFT_POSITION_Y_PROPORTION         =  parseInt(options.craft.top) / 100.0 ||0.2,
 
     lineColors = [
-      "#fb8072", // Red
-      "#8dd3c7", // Cyan
-      "#ffffb3", // Yellow
-      "#bebada", // Purple
-      "#80b1d3",
-      "#fdb462",
-      "#b3de69",
-      "#fccde5",
-      "#d9d9d9",
-      "#bc80bd",
-      "#ccebc5",
-      "#ffed6f",
+      "#00f3ff", // Neon Cyan
+      "#bc13fe", // Neon Purple
+      "#ff0055", // Neon Red/Pink
+      "#ccff00", // Neon Lime
+      "#0051ff", // Neon Blue
+      "#ff9900", // Neon Orange
+      "#ffffff", // White
+      "#ff00ff", // Magenta
+      "#00ff99", // Spring Green
+      "#ffff00", // Yellow
+      "#00ffff", // Cyan
+      "#ff3333", // Red
     ],
     WINDOW_WIDTH_MICROS_DEFAULT = 1000000;
 

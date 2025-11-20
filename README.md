@@ -1,19 +1,36 @@
-# Betaflight Blackbox Explorer
+# ECHO CORP Blackbox Viewer
 
-[![Latest version](https://img.shields.io/github/v/release/betaflight/blackbox-log-viewer)](https://github.com/betaflight/blackbox-log-viewer/releases)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=betaflight_blackbox-log-viewer&metric=alert_status)](https://sonarcloud.io/dashboard?id=betaflight_blackbox-log-viewer)
-[![Build](https://img.shields.io/github/actions/workflow/status/betaflight/blackbox-log-viewer/deploy.yml?branch=master)](https://github.com/betaflight/blackbox-log-viewer/actions/workflows/deploy.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Join us on Discord!](https://img.shields.io/discord/868013470023548938)](https://discord.gg/n4E6ak4u3c)
 
+> **Modified version of [Betaflight Blackbox Explorer](https://github.com/betaflight/blackbox-log-viewer)**  
+> Original work © The Betaflight open source project | Licensed under GPL-3.0
 
-![Main explorer interface](screenshots/main-interface.jpg)
+![Main explorer interface](screenshots/main-interface.png)
 
-This tool allows you to open logs recorded by Betaflight's Blackbox feature in
-your web browser. You can seek through the log to examine graphed values at each
-timestep. If you have a flight video, you can load that in as well and it'll be
-played behind the log. You can export the graphs as a WebM video to share with
-others.
+**ECHO CORP Blackbox Viewer** is a professional flight data analysis and visualization system featuring a cyberpunk-themed interface. This tool allows you to open blackbox logs, analyze telemetry data, and export to various formats including CSV.
+
+## ⚡ Features
+
+- **Advanced Visualization:** Real-time graph rendering with customizable data fields
+- **One-Click CSV Export:** Convert blackbox logs to CSV directly from the home page
+- **Video Synchronization:** Load flight videos and sync with telemetry data
+- **Spectrum Analysis:** FFT analyzer for noise and vibration identification
+- **3D Flight Path:** Interactive GPS trajectory visualization
+- **Modern UI:** Cyberpunk-themed interface with neon accents and glassmorphism
+
+## 📋 Legal Notice
+
+This is a **modified version** of the Betaflight Blackbox Explorer. Key modifications include:
+- Complete UI redesign with cyberpunk/neon theme
+- Rebranding from Betaflight to ECHO CORP
+- One-click CSV conversion feature
+- Enhanced welcome page and quick actions
+
+**Original Project:** https://github.com/betaflight/blackbox-log-viewer  
+**License:** GNU General Public License v3.0  
+**See [NOTICE.md](NOTICE.md) for full attribution and modification details**
+
+This software respects and honors the open-source contributions of the Betaflight community.
 
 ## Installation
 
@@ -24,19 +41,17 @@ would.
 
 ### Latest stable version
 
-For the latest stable released version visit https://blackbox.betaflight.com/
+For the latest version visit the [ECHO CORP Blackbox Viewer](https://ec-blackbox-viewer.vercel.app/)
 
-### Unstable testing versions
+### Original Betaflight Version
 
-The latest master build is always available at https://master.blackbox.betaflight.com/
+The original Betaflight Blackbox Explorer is available at https://blackbox.betaflight.com/
 
-**Be aware that these versions are intended for testing / feedback only, and may be buggy or broken. Caution is advised when using these versions.**
+**This ECHO CORP version includes custom theming and UI enhancements while maintaining compatibility with Betaflight blackbox logs.**
 
 ### Install the app to be used in offline mode
 
-Follow the procedure to install PWA on your platform. For example on MacOS chrome:
-![Url bar PWA install](screenshots/url-bar.webp)
-![PWA install dialog](screenshots/pwa-install-dialog.webp)
+Follow the procedure to install PWA on your platform. The browser will show an install prompt when you visit the app, allowing you to install it as a desktop application for offline use.
 
 ## Usage
 
@@ -142,4 +157,15 @@ to load the new video into the Blackbox Explorer.
 ## License
 
 This project is licensed under GPLv3.
-# EC-BlackBox-Viewer.
+
+## Credits
+
+**Original Authors:** The Betaflight open source project  
+**Original Repository:** https://github.com/betaflight/blackbox-log-viewer  
+**ECHO CORP Modifications:** Custom UI theme, branding, and enhanced user experience  
+
+We are grateful to the Betaflight community for creating this exceptional tool and making it available under an open-source license.
+
+---
+
+**ECHO CORP** | Flight Data Analytics

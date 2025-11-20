@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js isBF">
+<html class="no-js isECHO">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Betaflight - Blackbox Explorer</title>
-    <link rel="icon" type="image/png" href="images/bf_icon_128.png">
+    <title>ECHO CORP - Blackbox Explorer</title>
+    <link rel="icon" type="image/x-icon" href="images/echo_favicon.ico">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,137 +19,81 @@
 </head>
 
 <body>
+    <div class="scanlines"></div>
     <!--  Welcome Page -->
     <div class="welcome-pane">
         <div class="container">
-            <div class="jumbotron">
-                <h1>Welcome to the Enhanced Blackbox Explorer!</h1>
-                <p>This tool allows you to view and analyze logs created by Cleanflight's and Betaflight's Blackbox feature.</p>
-                <span class="btn btn-primary btn-lg btn-file" data-toggle="tooltip" title="Start by opening a log or video file"> Open log file/video
-                    <input type="file" class="file-open" accept=".bbl,.txt,.cfl,.bfl,.log,.avi,.mov,.mp4,.mpeg,.json" multiple />
-                </span>
-                <span id="loading-file-text" class="hiddenElement loading-message"></span>
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-logo">ECHO CORP</div>
+                    <h1 class="hero-title">BLACKBOX  VIEWER</h1>
+                    <p class="hero-subtitle">TACTICAL FLIGHT DATA ANALYSIS SYSTEM</p>
+                    
+                    <div class="hero-actions">
+                        <div class="action-card">
+                            <div class="action-icon">📊</div>
+                            <h3>ANALYZE LOG</h3>
+                            <p>Open blackbox logs for advanced visualization and analysis</p>
+                            <span class="btn btn-primary btn-lg btn-file">
+                                SELECT LOG FILE
+                                <input type="file" class="file-open" accept=".bbl,.txt,.cfl,.bfl,.log,.avi,.mov,.mp4,.mpeg,.json" multiple />
+                            </span>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">💾</div>
+                            <h3>CONVERT TO CSV</h3>
+                            <p>One-click conversion of blackbox logs to CSV format</p>
+                            <span class="btn btn-success btn-lg btn-file btn-csv-convert">
+                                CONVERT TO CSV
+                                <input type="file" class="file-csv-convert" accept=".bbl,.txt,.cfl,.bfl,.log" />
+                            </span>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">🎥</div>
+                            <h3>LOAD VIDEO</h3>
+                            <p>Synchronize video with telemetry data for playback</p>
+                            <span class="btn btn-info btn-lg btn-file">
+                                SELECT VIDEO
+                                <input type="file" class="file-open" accept=".avi,.mov,.mp4,.mpeg" />
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <span id="loading-file-text" class="hiddenElement loading-message"></span>
+                </div>
             </div>
         </div>
-        <div class="container">
+        
+        <div class="container features-section">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Introduction to Blackbox
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                The Blackbox feature is built in to
-                                <a href="https://github.com/cleanflight/cleanflight" target="_blank" rel="noopener noreferrer">Cleanflight</a> and
-                                <a href="https://github.com/betaflight/betaflight/releases" target="_blank" rel="noopener noreferrer">Betaflight</a>, and is supported on most of CF's flight controllers (Naze32, CC3D, SPRacingF3,
-                                etc.).
-                            </p>
-                            <p>
-                                To get started with Blackbox recording, read
-                                <a href="https://github.com/betaflight/betaflight/blob/master/docs/Blackbox.md" target="_blank" rel="noopener noreferrer">Cleanflight and Betaflight's Blackbox feature documentation</a>.
-                            </p>
-                            <p>
-                                Already have a log recorded? View
-                                <a href="https://github.com/betaflight/blackbox-tools/blob/master/Readme.md" target="_blank" rel="noopener noreferrer">the documentation for this log viewer</a> for details on how to best use this tool.
-                            </p>
-                            <p>
-                                If you believe you've found a bug in this viewer (e.g. the viewer crashes upon attempting to open a log file), or you have
-                                a suggestion, please add it to
-                                <a href="https://github.com/betaflight/blackbox-log-viewer/issues" target="_blank" rel="noopener noreferrer">the viewer's GitHub bug tracker</a>.
-                            </p>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4>REAL-TIME GRAPHS</h4>
+                        <p>High-performance telemetry visualization with customizable data fields and multi-axis plotting</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Tuning your craft
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                The Blackbox can deliver insights on your flight performance that will allow you to tune variables such as your PIDs and
-                                low-pass filter settings.
-                            </p>
-                            <p>
-                                For help and instructions on how to tune your craft, please read some of these resources:
-                            </p>
-                            <ul>
-                                <li>
-                                    <a href="http://www.rcgroups.com/forums/showthread.php?t=2439428" target="_blank" rel="noopener noreferrer">Mini quad PID tuning from start to finish</a> by Joshua Bardwell on RCGroups.com
-                                </li>
-                                <li>
-                                    <a href="http://www.rcgroups.com/forums/showthread.php?t=2386267" target="_blank" rel="noopener noreferrer">Blackbox log analyzation/help thread</a> on RCGroups.com
-                                </li>
-                                <li>
-                                    <a href="https://github.com/cleanflight/cleanflight/blob/master/docs/PID%20tuning.md" target="_blank" rel="noopener noreferrer">Cleanflight and Betaflight's PID tuning documentation</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.rcgroups.com/forums/showthread.php?t=2249574" target="_blank" rel="noopener noreferrer">Cleanflight support topic</a> on RCGroups.com
-                                </li>
-                                <li>
-                                    <a href="http://www.rcgroups.com/forums/showthread.php?t=2464844" target="_blank" rel="noopener noreferrer">Betaflight support topic</a> on RCGroups.com
-                                </li>
-                                <li>
-                                    <a href="http://www.rcgroups.com/forums/showthread.php?t=2299805" target="_blank" rel="noopener noreferrer">Blackbox announcement topic (original viewer)</a> on RCGroups.com
-                                </li>
-                                <li>
-                                    <a href="http://www.rcgroups.com/forums/showthread.php?t=2649495" target="_blank" rel="noopener noreferrer">Enhanced Blackbox announcement topic (this viewer)</a> on RCGroups.com
-                                </li>
-                            </ul>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>SPECTRUM ANALYSIS</h4>
+                        <p>FFT spectrum analyzer for identifying noise, vibration, and filtering requirements</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Other tools
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                If you want to analyze your logs with your own mathematics package (such as Matlab) you can use the separate
-                                <a href="https://github.com/betaflight/blackbox-tools/" target="_blank" rel="noopener noreferrer">blackbox_decode tool</a>
-                                to convert your log file into a CSV file for analysis.
-                            </p>
-                            <p>
-                                If you want to share your log as a video, you can use the"export video" button at the top to render a WebM video, or use
-                                the commandline
-                                <a href="https://github.com/betaflight/blackbox-tools/" target="_blank" rel="noopener noreferrer">blackbox_render tool</a>
-                                tool to turn your log into a series of PNG files, or use a screen recording tool to record the playback of this log viewer.
-                            </p>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">🗺️</div>
+                        <h4>3D FLIGHT PATH</h4>
+                        <p>Interactive 3D visualization of flight trajectories with GPS overlay mapping</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Version
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                <div id="viewer-version">
-                                    <!-- current version shown here -->
-                                </div>
-                            </p>
-                            <p class="viewer-download">
-                                The latest official release is
-                                <a class="btn btn-default btn-md btn-viewer-download" data-toggle="tooltip" title="Goto the latest version download page"
-                                    href="https://github.com/betaflight/blackbox-log-viewer/releases/latest" target="_blank" rel="noopener noreferrer">
-                                    vX.X.XX </a><br>
-                            </p>
-                            <p class="viewer-download">
-                                The latest version is:<br>
-                                <a href="https://blackbox.betaflight.com"
-                                target="_blank"
-                                rel="noopener noreferrer">blackbox.betaflight.com</a>
-                            </p>
-                            <p class="viewer-download">
-                                The latest development version is:<br>
-                                <a href="https://master.blackbox.betaflight.com/"
-                                target="_blank"
-                                rel="noopener noreferrer">master.blackbox.betaflight.com</a>
-                            </p>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h4>PID TUNING</h4>
+                        <p>Advanced analysis tools for optimizing flight controller parameters and performance</p>
                     </div>
                 </div>
             </div>
@@ -168,8 +112,8 @@
                 </button>
                 <div class="navbar-logo">
                     <div>
-                        <img src="/images/cf_logo_white.svg" class="navbar-brand" />
-                        <span>Blackbox&nbsp;Explorer</span>
+                        <img src="/images/icon-128x128.png" />
+                        <span class="echo-brand">ECHO CORP BLACKBOX  VIEWER</span>
                     </div>
                     <a class="navbar-brand log-filename" html="#"></a>
                 </div>
@@ -541,7 +485,6 @@
                 </div>
                 <div id="mapContainer" class="map-container"></div>
                 <canvas width="0" height="0" id="stickCanvas"></canvas>
-                <span class="log-open-legend-dialog glyphicon glyphicon-cog" data-toggle="tooltip" title="Show the legend"></span>
             </div>
             <div class="log-graph-config">
                 <h2 id="legend_title">Legend
@@ -579,6 +522,7 @@
             </div>
             <div class="mouseNotification"></div>
         </div>
+        <span class="log-open-legend-dialog glyphicon glyphicon-cog" data-toggle="tooltip" title="Show the legend"></span>
         <div class="log-field-values" id="log-field-values">
             <a href="#log-field-values">
                 <h4>Field values</h4>

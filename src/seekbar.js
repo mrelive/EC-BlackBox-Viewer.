@@ -20,13 +20,13 @@ export function SeekBar(canvas) {
     outTime = false,
     backgroundValid = false,
     dirtyRegion = false,
-    BACKGROUND_STYLE = "#eee",
-    EVENT_BAR_STYLE = "#8d8",
-    ACTIVITY_BAR_STYLE = "rgba(170,170,255, 0.9)",
-    OUTSIDE_EXPORT_RANGE_STYLE = "rgba(100, 100, 100, 0.5)",
+    BACKGROUND_STYLE = "#0a0a0c",
+    EVENT_BAR_STYLE = "#bc13fe",
+    ACTIVITY_BAR_STYLE = "rgba(0, 243, 255, 0.8)",
+    OUTSIDE_EXPORT_RANGE_STYLE = "rgba(0, 0, 0, 0.6)",
     // Suggested to be the same as that used by the graph's center mark in order to tie them together
-    CURSOR_STYLE = "rgba(255, 64, 64, 0.75)",
-    CURSOR_STYLE_WINDOW = "rgba(255, 65, 64, 0.15)",
+    CURSOR_STYLE = "rgba(0, 243, 255, 0.9)",
+    CURSOR_STYLE_WINDOW = "rgba(0, 243, 255, 0.2)",
     //Current time cursor:
     CURSOR_WIDTH = 1,
     // The bar begins a couple of px inset from the left to allow the cursor to hang over the edge at start&end
