@@ -1774,6 +1774,25 @@ function BlackboxLogViewer() {
       userSettingsDialog.show(flightLog, userSettings);
     });
 
+    // About Dialog (GPL Compliance)
+    $(".open-about-dialog").click(function (e) {
+      e.preventDefault();
+      
+      const dialog = document.getElementById("dlgAbout");
+      if (dialog) {
+        dialog.showModal();
+      }
+    });
+
+    $(".close-about-dialog").click(function (e) {
+      e.preventDefault();
+      
+      const dialog = document.getElementById("dlgAbout");
+      if (dialog) {
+        dialog.close();
+      }
+    });
+
     $(".marker-offset", statusBar).click(function (e) {
       setCurrentBlackboxTime(markerTime);
       invalidateGraph();

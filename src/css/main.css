@@ -1590,26 +1590,16 @@ html.isINAV .navbar-logo {
 }
 
 html.isCF .navbar-logo img {
-  content: url(".././images/cf_logo_white.svg");
+  /* Cleanflight logo removed - using ECHO CORP branding */
   width: 160px;
 }
 
 html.isBF .navbar-logo img {
-  /* content: url("/images/light-wide-2.svg"); */
-  /* width: 282px; */
-  /* height: 50px; */
-  /* margin-left: 0 !important; */
+  /* Betaflight logo removed - using ECHO CORP branding */
 }
 
-/* html.isECHO .navbar-logo img {
-    content: none !important;
-    width: auto !important;
-    height: 40px !important;
-    margin-left: 0 !important;
-} */
-
 html.isINAV .navbar-logo img {
-  content: url(".././images/inav_logo_white.png");
+  /* INAV logo removed - using ECHO CORP branding */
   width: auto;
   left: -16px;
   top: 3px;
@@ -2841,6 +2831,242 @@ html.isECHO .feature-card p {
     font-size: 12px;
     color: var(--echo-text-muted);
     line-height: 1.6;
+}
+
+/* About Dialog (GPL Compliance) */
+.about-dialog {
+    max-width: 700px;
+    width: 90%;
+    border-radius: 8px;
+    padding: 0;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+html.isECHO .about-dialog {
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.98) 0%, rgba(5, 5, 10, 0.98) 100%);
+    border: 1px solid var(--echo-primary-dim);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 100px rgba(0, 243, 255, 0.2);
+}
+
+.about-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+html.isECHO .about-header h2 {
+    font-family: var(--echo-font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--echo-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.close-about-dialog {
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 1;
+    color: #999;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+html.isECHO .close-about-dialog:hover {
+    color: var(--echo-primary);
+    transform: scale(1.2);
+}
+
+.about-content {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.about-section {
+    margin-bottom: 25px;
+}
+
+.about-section:last-child {
+    margin-bottom: 0;
+}
+
+html.isECHO .about-section h3 {
+    font-family: var(--echo-font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--echo-secondary);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+html.isECHO .about-section p {
+    color: var(--echo-text-main);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+html.isECHO .about-section ul {
+    color: var(--echo-text-main);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+html.isECHO .about-section li {
+    margin: 5px 0;
+}
+
+html.isECHO .about-section a {
+    color: var(--echo-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+html.isECHO .about-section a:hover {
+    color: #fff;
+    border-bottom-color: var(--echo-primary);
+    text-shadow: 0 0 8px var(--echo-primary-dim);
+}
+
+.about-footer {
+    padding: 15px 25px;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+    text-align: right;
+}
+
+html.isECHO .about-footer .btn {
+    padding: 10px 30px;
+    font-family: var(--echo-font-display);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Landing Page Responsive Fixes */
+@media (max-width: 1200px) {
+    html.isECHO .hero-title {
+        font-size: 48px;
+    }
+    
+    html.isECHO .hero-subtitle {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 992px) {
+    html.isECHO .hero-logo {
+        font-size: 20px;
+    }
+    
+    html.isECHO .hero-title {
+        font-size: 40px;
+    }
+    
+    html.isECHO .hero-subtitle {
+        font-size: 12px;
+    }
+    
+    html.isECHO .action-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    html.isECHO .hero-section {
+        padding: 60px 20px;
+    }
+    
+    html.isECHO .hero-logo {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    html.isECHO .hero-title {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    
+    html.isECHO .hero-subtitle {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+    
+    html.isECHO .actions-grid {
+        padding: 30px 15px;
+    }
+    
+    html.isECHO .action-card {
+        padding: 25px 15px;
+    }
+    
+    html.isECHO .action-card h3 {
+        font-size: 14px;
+    }
+    
+    html.isECHO .action-card p {
+        font-size: 12px;
+        min-height: auto;
+    }
+    
+    html.isECHO .features-section {
+        margin-top: 40px;
+    }
+    
+    .about-dialog {
+        width: 95%;
+        max-width: none;
+    }
+    
+    .about-content {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    html.isECHO .hero-section {
+        padding: 40px 15px;
+    }
+    
+    html.isECHO .hero-logo {
+        font-size: 16px;
+    }
+    
+    html.isECHO .hero-title {
+        font-size: 28px;
+    }
+    
+    html.isECHO .hero-subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    
+    html.isECHO .action-card {
+        padding: 20px 15px;
+    }
+    
+    html.isECHO .action-icon {
+        font-size: 36px;
+    }
 }
 
 @keyframes glow-pulse {

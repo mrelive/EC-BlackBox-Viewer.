@@ -147,6 +147,9 @@
                         <button type="button" class="btn btn-nobg open-keys-dialog" data-toggle="tooltip" title="Show Shortcuts">
                             <span class="glyphicon glyphicon-question-sign"></span>
                         </button>
+                        <button type="button" class="btn btn-nobg open-about-dialog" data-toggle="tooltip" title="About & License">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -3207,6 +3210,49 @@
         <div class="buttons">
             <a href="#" class="dialogUpdate-websitebtn regular-button">Go to Release Website</a>
             <a href="#" class="dialogUpdate-closebtn regular-button">Close</a>
+        </div>
+    </dialog>
+
+    <!-- About Dialog (GPL Compliance) -->
+    <dialog id="dlgAbout" class="about-dialog">
+        <div class="about-header">
+            <h2>ECHO CORP Blackbox Viewer</h2>
+            <span class="close-about-dialog">&times;</span>
+        </div>
+        <div class="about-content">
+            <div class="about-section">
+                <h3>Version</h3>
+                <p>2025.12.0</p>
+            </div>
+            <div class="about-section">
+                <h3>Modified Version Notice</h3>
+                <p>This is a <strong>modified version</strong> of the Betaflight Blackbox Explorer.</p>
+                <p><strong>Original Project:</strong> <a href="https://github.com/betaflight/blackbox-log-viewer" target="_blank" rel="noopener noreferrer">Betaflight Blackbox Log Viewer</a></p>
+                <p><strong>Original Authors:</strong> The Betaflight open source project</p>
+            </div>
+            <div class="about-section">
+                <h3>Modifications</h3>
+                <ul>
+                    <li>Complete UI redesign with cyberpunk/neon theme</li>
+                    <li>Rebranding from Betaflight to ECHO CORP</li>
+                    <li>Enhanced welcome page with quick actions</li>
+                    <li>Custom styling and user experience improvements</li>
+                </ul>
+            </div>
+            <div class="about-section">
+                <h3>License</h3>
+                <p>This software is licensed under the <strong>GNU General Public License v3.0</strong></p>
+                <p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.</p>
+                <p><strong>Source Code:</strong> <a href="https://github.com/mrelive/EC-BlackBox-Viewer" target="_blank" rel="noopener noreferrer">github.com/mrelive/EC-BlackBox-Viewer</a></p>
+                <p><a href="https://github.com/mrelive/EC-BlackBox-Viewer/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">View Full License</a> | <a href="https://github.com/mrelive/EC-BlackBox-Viewer/blob/main/NOTICE.md" target="_blank" rel="noopener noreferrer">View Attribution Notice</a></p>
+            </div>
+            <div class="about-section">
+                <h3>Credits</h3>
+                <p>We are grateful to the Betaflight community for creating this exceptional tool and making it available under an open-source license.</p>
+            </div>
+        </div>
+        <div class="about-footer">
+            <button class="btn btn-primary close-about-dialog">Close</button>
         </div>
     </dialog>
 
