@@ -2706,8 +2706,9 @@ html.isECHO .hero-actions {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-top: 50px;
+    padding: 0 20px;
 }
 
 html.isECHO .action-card {
@@ -2715,7 +2716,9 @@ html.isECHO .action-card {
     border: 1px solid var(--echo-primary-dim);
     border-radius: 8px;
     padding: 30px 25px;
-    width: 280px;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 380px;
     text-align: center;
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -2971,6 +2974,23 @@ html.isECHO .about-footer .btn {
     html.isECHO .hero-subtitle {
         font-size: 14px;
     }
+    
+    html.isECHO .hero-actions {
+        gap: 20px;
+    }
+    
+    html.isECHO .action-card {
+        padding: 25px 20px;
+    }
+    
+    html.isECHO .action-card h3 {
+        font-size: 14px;
+    }
+    
+    html.isECHO .action-card p {
+        font-size: 12px;
+        min-height: 45px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -2986,8 +3006,33 @@ html.isECHO .about-footer .btn {
         font-size: 12px;
     }
     
+    html.isECHO .hero-actions {
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
     html.isECHO .action-card {
-        margin-bottom: 20px;
+        padding: 20px 15px;
+    }
+    
+    html.isECHO .action-icon {
+        font-size: 40px;
+    }
+    
+    html.isECHO .action-card h3 {
+        font-size: 13px;
+        margin: 10px 0 8px;
+    }
+    
+    html.isECHO .action-card p {
+        font-size: 11px;
+        min-height: 40px;
+        margin-bottom: 15px;
+    }
+    
+    html.isECHO .action-card .btn {
+        padding: 10px 15px;
+        font-size: 13px;
     }
 }
 
@@ -3011,21 +3056,36 @@ html.isECHO .about-footer .btn {
         letter-spacing: 3px;
     }
     
-    html.isECHO .actions-grid {
-        padding: 30px 15px;
+    html.isECHO .hero-actions {
+        gap: 12px;
+        padding: 0 10px;
     }
     
     html.isECHO .action-card {
-        padding: 25px 15px;
+        padding: 18px 12px;
+    }
+    
+    html.isECHO .action-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
     }
     
     html.isECHO .action-card h3 {
-        font-size: 14px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        margin: 8px 0 6px;
     }
     
     html.isECHO .action-card p {
-        font-size: 12px;
+        font-size: 10px;
         min-height: auto;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+    
+    html.isECHO .action-card .btn {
+        padding: 8px 12px;
+        font-size: 11px;
     }
     
     html.isECHO .features-section {
@@ -3042,30 +3102,87 @@ html.isECHO .about-footer .btn {
     }
 }
 
-@media (max-width: 480px) {
-    html.isECHO .hero-section {
-        padding: 40px 15px;
-    }
-    
-    html.isECHO .hero-logo {
-        font-size: 16px;
-    }
-    
-    html.isECHO .hero-title {
-        font-size: 28px;
-    }
-    
-    html.isECHO .hero-subtitle {
-        font-size: 10px;
-        letter-spacing: 2px;
+@media (max-width: 600px) {
+    html.isECHO .hero-actions {
+        gap: 10px;
+        padding: 0 5px;
     }
     
     html.isECHO .action-card {
-        padding: 20px 15px;
+        padding: 15px 10px;
     }
     
     html.isECHO .action-icon {
-        font-size: 36px;
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+    
+    html.isECHO .action-card h3 {
+        font-size: 11px;
+        letter-spacing: 1px;
+        margin: 6px 0 5px;
+    }
+    
+    html.isECHO .action-card p {
+        font-size: 9px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+    
+    html.isECHO .action-card .btn {
+        padding: 7px 10px;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    html.isECHO .hero-section {
+        padding: 40px 10px;
+    }
+    
+    html.isECHO .hero-logo {
+        font-size: 14px;
+    }
+    
+    html.isECHO .hero-title {
+        font-size: 24px;
+    }
+    
+    html.isECHO .hero-subtitle {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+    
+    html.isECHO .hero-actions {
+        gap: 8px;
+        padding: 0 5px;
+    }
+    
+    html.isECHO .action-card {
+        padding: 12px 8px;
+    }
+    
+    html.isECHO .action-icon {
+        font-size: 28px;
+        margin-bottom: 6px;
+    }
+    
+    html.isECHO .action-card h3 {
+        font-size: 10px;
+        letter-spacing: 0.5px;
+        margin: 5px 0 4px;
+    }
+    
+    html.isECHO .action-card p {
+        font-size: 8px;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+    
+    html.isECHO .action-card .btn {
+        padding: 6px 8px;
+        font-size: 9px;
     }
 }
 
