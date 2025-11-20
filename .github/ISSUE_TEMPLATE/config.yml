@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Configuration and other support questions
-    url: https://github.com/betaflight/betaflight#support-and-developers-channel
-    about: Official Slack chat channel and Facebook group about Betaflight
-  - name: Hardware Issues
-    url: https://github.com/betaflight/betaflight#hardware-issues
-    about: What to do in the case of hardware issues
+  - name: ECHO CORP Support & Discussions
+    url: https://github.com/mrelive/EC-BlackBox-Viewer/discussions
+    about: Ask questions and get support for ECHO CORP Blackbox Viewer
+  - name: Original Betaflight Project
+    url: https://github.com/betaflight/blackbox-log-viewer
+    about: Issues related to the original Betaflight Blackbox Explorer

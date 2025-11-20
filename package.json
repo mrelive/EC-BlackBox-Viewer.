@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/betaflight/blackbox-log-viewer"
+    "url": "github.com/mrelive/EC-BlackBox-Viewer"
   },
   "author": "The Betaflight open source project.",
   "license": "GPL-3.0",

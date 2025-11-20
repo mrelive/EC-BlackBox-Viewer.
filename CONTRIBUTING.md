@@ -10,4 +10,6 @@ Please search for existing issues *before* creating new ones.
 
 # Developers
 
-Please refer to the development section in the [this folder](https://github.com/betaflight/betaflight/tree/master/docs/development).
+Please refer to the development section in the README.md of this repository.
+
+For coding style guidelines from the original Betaflight project, see: https://github.com/betaflight/betaflight/blob/master/docs/development/CodingStyle.md
