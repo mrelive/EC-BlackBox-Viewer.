@@ -1,0 +1,2219 @@
+[
+    {
+        "title": "Battery",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "vbatLatest",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 18.0,
+                                "max": 26.0
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 18.0,
+                                "max": 26.0
+                            }
+                        },
+                        "color": "#d9d9d9",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Battery Voltage"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "amperageLatest",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 200.0
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 200.0
+                            }
+                        },
+                        "color": "#ffed6f",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Current"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "motor[0]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[1]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[2]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[3]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Motors"
+            }
+        ]
+    },
+    {
+        "title": "Gyro Filtering",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "axisP[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisD[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#80b1d3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroUnfilt[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Gyro + PD roll"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisD[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#80b1d3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroUnfilt[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Gyro + PD pitch"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroUnfilt[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Gyro + PD yaw"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "motor[0]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[1]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[2]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[3]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Motors"
+            }
+        ]
+    },
+    {
+        "title": "Stick Tracking",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "axisP[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisI[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisD[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#b3de69",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Gyro + PID roll"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisI[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisD[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#b3de69",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Gyro + PID pitch"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisI[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[2]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#b3de69",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Gyro + PID yaw"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "motor[0]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[1]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[2]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[3]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Motors"
+            }
+        ]
+    },
+    {
+        "title": "RC to FF",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "rcCommand[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommand[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommand[2]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommand[3]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 1000,
+                                "max": 2000
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "RC Command"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "rcCommands[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[2]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[3]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Setpoint"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisF[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Feedforward"
+            }
+        ]
+    },
+    {
+        "title": "Motors",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "motor[0]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[1]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[2]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "motor[3]",
+                        "smoothing": 5000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 5000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "Motors"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "eRPM[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "eRPM[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "eRPM[2]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "eRPM[3]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 1642.9,
+                                "max": 20957.1
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "RPM"
+            }
+        ]
+    },
+    {
+        "title": "GPS",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "GPS_numSat",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 40
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 40
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "GPS_altitude",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 120.0
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 120.0
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "GPS_speed",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "GPS_ground_course",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 360
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 360
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "GPS_coord[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": null,
+                                "max": null
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": null,
+                                "max": null
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "GPS_coord[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": null,
+                                "max": null
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": null,
+                                "max": null
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "GPS"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "gpsCartesianCoords[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": -1000,
+                                "max": 1000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": -1000,
+                                "max": 1000
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gpsCartesianCoords[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 120
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 120
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gpsCartesianCoords[2]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": -1000,
+                                "max": 1000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": -1000,
+                                "max": 1000
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gpsDistance",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 1000
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 0
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gpsHomeAzimuth",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 360
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 1,
+                            "MinMax": {
+                                "min": 0,
+                                "max": 360
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "GPS Cartesian coords"
+            },
+            {
+                "fields": [],
+                "height": 1,
+                "label": "Compass"
+            }
+        ]
+    },
+    {
+        "title": "Debug",
+        "graphConfig": [
+            {
+                "fields": [],
+                "height": 1,
+                "label": "Debug"
+            }
+        ]
+    },
+    {
+        "title": "PID Error Roll",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "axisError[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#fccde5",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[0]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PID Error Roll"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisI[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisD[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PIDs Roll"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisSum[0]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 1,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 1,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bc80bd",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PID Sum Roll"
+            }
+        ]
+    },
+    {
+        "title": "PID Error Pitch",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "axisError[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#fccde5",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[1]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#b3de69",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PID Error Pitch"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisI[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisD[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#ffffb3",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PIDs Pitch"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisSum[1]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bc80bd",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PID Sum Pitch"
+            }
+        ]
+    },
+    {
+        "title": "PID Error Yaw",
+        "graphConfig": [
+            {
+                "fields": [
+                    {
+                        "name": "axisError[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#fccde5",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "gyroADC[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#bebada",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "rcCommands[2]",
+                        "smoothing": 0,
+                        "curve": {
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "default": {
+                            "smoothing": 0,
+                            "power": 0.25,
+                            "MinMax": {
+                                "min": -804,
+                                "max": 804
+                            }
+                        },
+                        "color": "#b3de69",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PID Error Yaw"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisP[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fb8072",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisI[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#8dd3c7",
+                        "lineWidth": 1
+                    },
+                    {
+                        "name": "axisF[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#fdb462",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PIDs Yaw"
+            },
+            {
+                "fields": [
+                    {
+                        "name": "axisSum[2]",
+                        "smoothing": 3000,
+                        "curve": {
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "default": {
+                            "smoothing": 3000,
+                            "power": 0.3,
+                            "MinMax": {
+                                "min": -100,
+                                "max": 100
+                            }
+                        },
+                        "color": "#bc80bd",
+                        "lineWidth": 1
+                    }
+                ],
+                "height": 1,
+                "label": "PID Sum Yaw"
+            }
+        ]
+    }
+]

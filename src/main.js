@@ -1330,6 +1330,11 @@ function BlackboxLogViewer() {
       createNewBlackboxWindow();
     });
 
+    $("#btn-load-preset-workspace").click(function (e) {
+      workspaceMenu.toggle();
+      e.stopPropagation(); // Prevent event bubbling
+    });
+
     $(".file-open").change(function (e) {
       const files = e.target.files;
 
