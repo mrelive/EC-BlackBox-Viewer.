@@ -1107,7 +1107,7 @@ html.has-log .graph-row {
   position: fixed;
   top: 100px;
   width: calc(100% - 30px);
-  bottom: 80px;
+  bottom: 150px;
 }
 
 html.has-video .log-graph {
