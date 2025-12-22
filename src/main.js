@@ -1344,6 +1344,37 @@ function BlackboxLogViewer() {
       e.target.value = "";
     });
 
+    // Drag and drop zone functionality
+    const dragDropZone = $("#dragDropZone");
+    if (dragDropZone.length) {
+      dragDropZone.on("dragover dragenter", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dragDropZone.addClass("drag-over");
+      });
+
+      dragDropZone.on("dragleave dragexit", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dragDropZone.removeClass("drag-over");
+      });
+
+      dragDropZone.on("drop", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dragDropZone.removeClass("drag-over");
+        
+        const files = e.originalEvent.dataTransfer.files;
+        if (files.length > 0) {
+          loadFiles(files);
+        }
+      });
+
+      dragDropZone.on("click", function () {
+        $(".file-open").first().click();
+      });
+    }
+
     // CSV Conversion on welcome page
     $(".file-csv-convert").change(function (e) {
       const files = e.target.files;
