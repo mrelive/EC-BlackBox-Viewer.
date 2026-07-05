@@ -9,7 +9,7 @@
  */
 
 import { getFlightLog } from '../_lib/setup.js';
-import { parseMultipart, getUploadedBuffer } from '../_lib/multipart.js';
+import { MultipartLimitError, getUploadedBuffer, parseMultipart } from '../_lib/multipart.js';
 
 export const config = { api: { bodyParser: false } };
 
@@ -38,6 +38,9 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('[/api/blackbox/detect-flights]', err);
+    if (err instanceof MultipartLimitError) {
+      return res.status(err.statusCode).json({ error: err.message });
+    }
     return res.status(500).json({ error: err?.message || 'Detection failed' });
   }
 }

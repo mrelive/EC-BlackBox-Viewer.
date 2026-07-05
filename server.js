@@ -2,7 +2,12 @@ import http from 'node:http';
 import { URL } from 'node:url';
 
 import convertHandler from './api/blackbox/convert.js';
+import convertSmartHandler from './api/blackbox/convert-smart.js';
 import detectFlightsHandler from './api/blackbox/detect-flights.js';
+import createJobHandler from './api/blackbox/jobs/create.js';
+import processJobHandler from './api/blackbox/jobs/process.js';
+import resultJobHandler from './api/blackbox/jobs/result.js';
+import statusJobHandler from './api/blackbox/jobs/status.js';
 
 const PORT = Number.parseInt(process.env.PORT || '3000', 10);
 const HOST = process.env.HOST || '0.0.0.0';
@@ -10,8 +15,19 @@ const HOST = process.env.HOST || '0.0.0.0';
 const routes = new Map([
   ['POST /api/blackbox/convert', convertHandler],
   ['OPTIONS /api/blackbox/convert', convertHandler],
+  ['POST /api/blackbox/convert-smart', convertSmartHandler],
+  ['OPTIONS /api/blackbox/convert-smart', convertSmartHandler],
   ['POST /api/blackbox/detect-flights', detectFlightsHandler],
   ['OPTIONS /api/blackbox/detect-flights', detectFlightsHandler],
+  ['POST /api/blackbox/jobs/create', createJobHandler],
+  ['OPTIONS /api/blackbox/jobs/create', createJobHandler],
+  ['POST /api/blackbox/jobs/process', processJobHandler],
+  ['OPTIONS /api/blackbox/jobs/process', processJobHandler],
+  ['GET /api/blackbox/jobs/result', resultJobHandler],
+  ['OPTIONS /api/blackbox/jobs/result', resultJobHandler],
+  ['GET /api/blackbox/jobs/status', statusJobHandler],
+  ['OPTIONS /api/blackbox/jobs/status', statusJobHandler],
+  ['GET /healthz', async (_req, res) => res.status(200).json({ ok: true })],
 ]);
 
 function attachResponseHelpers(res) {

@@ -6,7 +6,24 @@
 
 import busboy from 'busboy';
 
-const MAX_FILE_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
+const DEFAULT_MAX_FILE_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
+
+function resolveMaxFileSizeBytes() {
+  const raw = process.env.BBL_MAX_FILE_SIZE_MB;
+  const mb = Number.parseInt(String(raw ?? ''), 10);
+  if (Number.isFinite(mb) && mb > 0) {
+    return mb * 1024 * 1024;
+  }
+  return DEFAULT_MAX_FILE_SIZE_BYTES;
+}
+
+export class MultipartLimitError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'MultipartLimitError';
+    this.statusCode = 413;
+  }
+}
 
 /**
  * Parse a multipart request.
@@ -15,29 +32,50 @@ const MAX_FILE_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
  */
 export function parseMultipart(req) {
   return new Promise((resolve, reject) => {
-    const bb = busboy({ headers: req.headers, limits: { fileSize: MAX_FILE_SIZE_BYTES } });
+    const maxFileSizeBytes = resolveMaxFileSizeBytes();
+    const bb = busboy({ headers: req.headers, limits: { fileSize: maxFileSizeBytes } });
     const files = {};
     const fields = {};
+    let settled = false;
+
+    function rejectOnce(error) {
+      if (settled) return;
+      settled = true;
+      reject(error);
+    }
 
     bb.on('file', (fieldname, stream, info) => {
       const chunks = [];
+      let exceededFileSize = false;
       stream.on('data', (chunk) => chunks.push(chunk));
+      stream.on('limit', () => {
+        exceededFileSize = true;
+      });
       stream.on('end', () => {
+        if (exceededFileSize) {
+          return rejectOnce(
+            new MultipartLimitError(`Uploaded file exceeds ${Math.floor(maxFileSizeBytes / (1024 * 1024))} MB limit`)
+          );
+        }
         files[fieldname] = {
           buffer: Buffer.concat(chunks),
           filename: info.filename || 'upload',
           mimeType: info.mimeType || 'application/octet-stream',
         };
       });
-      stream.on('error', reject);
+      stream.on('error', rejectOnce);
     });
 
     bb.on('field', (fieldname, value) => {
       fields[fieldname] = value;
     });
 
-    bb.on('finish', () => resolve({ files, fields }));
-    bb.on('error', reject);
+    bb.on('finish', () => {
+      if (settled) return;
+      settled = true;
+      resolve({ files, fields });
+    });
+    bb.on('error', rejectOnce);
 
     req.pipe(bb);
   });

@@ -13,7 +13,8 @@
  */
 
 import { getFlightLog } from '../_lib/setup.js';
-import { parseMultipart, getUploadedBuffer, getField } from '../_lib/multipart.js';
+import { prepareFlightLogPayload, writeCsvPayload, writeJsonPayload } from '../_lib/flightlogConversion.js';
+import { MultipartLimitError, getField, getUploadedBuffer, parseMultipart } from '../_lib/multipart.js';
 
 // Disable Vercel's default body parser so busboy can read the raw stream.
 export const config = { api: { bodyParser: false, responseLimit: '50mb' } };
@@ -24,42 +25,8 @@ function setCors(res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
 }
 
-/**
- * Build a CSV string from an open FlightLog instance.
- * Mirrors the format that the PIDS analyzers expect:
- *   - sysConfig key/value "header" rows at the top
- *   - a quoted column-name row
- *   - one data row per frame
- */
-function buildCsv(flightLog, fieldNames, sysConfig, minTime, maxTime) {
-  const rows = [];
-
-  rows.push('"Product","Blackbox flight data recorder by Nicholas Sherlock"');
-
-  if (sysConfig && typeof sysConfig === 'object') {
-    for (const key of Object.keys(sysConfig)) {
-      const v = sysConfig[key];
-      if (v === undefined || v === null) continue;
-      if (Array.isArray(v)) {
-        rows.push(`"${key}","${v.join(',')}"`);
-      } else if (typeof v === 'string') {
-        rows.push(`"${key}","${v.replace(/"/g, '""')}"`);
-      } else {
-        rows.push(`"${key}",${v}`);
-      }
-    }
-  }
-
-  rows.push(fieldNames.map((n) => `"${n}"`).join(','));
-
-  const chunks = flightLog.getChunksInTimeRange(minTime, maxTime);
-  for (const chunk of chunks) {
-    for (const frame of chunk.frames) {
-      rows.push(frame.map((v) => (v == null ? 'NaN' : v)).join(','));
-    }
-  }
-
-  return rows.join('\n');
+function normalizeFormat(input) {
+  return String(input ?? 'csv').toLowerCase() === 'json' ? 'json' : 'csv';
 }
 
 export default async function handler(req, res) {
@@ -76,49 +43,33 @@ export default async function handler(req, res) {
     const logIndexRaw = getField(fields, 'logIndex') ?? req.query?.logIndex ?? '0';
     const logIndex = Math.max(0, parseInt(logIndexRaw, 10) || 0);
 
-    const format = String(
-      req.query?.format ?? getField(fields, 'format') ?? 'csv'
-    ).toLowerCase();
+    const format = normalizeFormat(req.query?.format ?? getField(fields, 'format') ?? 'csv');
 
     const FlightLog = await getFlightLog();
-    const flightLog = new FlightLog(fileBuffer);
-
-    const logCount = flightLog.getLogCount();
-    if (!logCount) {
-      return res.status(422).json({ error: 'No valid logs found in file' });
-    }
-
-    const idx = Math.min(logIndex, logCount - 1);
-
-    if (!flightLog.openLog(idx)) {
-      const logError = flightLog.getLogError ? flightLog.getLogError(idx) : 'unknown';
-      return res.status(422).json({ error: `Failed to open log ${idx}: ${logError}` });
-    }
-
-    const fieldNames = flightLog.getMainFieldNames();
-    const sysConfig = flightLog.getSysConfig();
-    const minTime = flightLog.getMinTime();
-    const maxTime = flightLog.getMaxTime();
+    const payload = prepareFlightLogPayload(FlightLog, fileBuffer, logIndex);
 
     if (format === 'json') {
-      const frames = [];
-      const chunks = flightLog.getChunksInTimeRange(minTime, maxTime);
-      for (const chunk of chunks) {
-        for (const frame of chunk.frames) {
-          frames.push(frame.map((v) => (v == null ? null : v)));
-        }
-      }
-      return res.status(200).json({ fields: fieldNames, frames, sysConfig, logCount, logIndex: idx });
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      await writeJsonPayload(res, payload);
+      return res.end();
     }
 
-    // Default: CSV
-    const csv = buildCsv(flightLog, fieldNames, sysConfig, minTime, maxTime);
+    // Default CSV stream response
+    res.statusCode = 200;
     res.setHeader('Content-Type', 'text/csv; charset=utf-8');
     res.setHeader('Content-Disposition', 'inline; filename="blackbox.csv"');
-    return res.status(200).send(csv);
+    await writeCsvPayload(res, payload);
+    return res.end();
 
   } catch (err) {
     console.error('[/api/blackbox/convert]', err);
+    if (err instanceof MultipartLimitError) {
+      return res.status(err.statusCode).json({ error: err.message });
+    }
+    if (Number.isInteger(err?.statusCode)) {
+      return res.status(err.statusCode).json({ error: err.message });
+    }
     return res.status(500).json({ error: err?.message || 'Conversion failed' });
   }
 }

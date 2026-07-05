@@ -39,25 +39,28 @@ git status
 ```
 
 ### Phase 2: Runtime Refactor (Vercel -> Portable Node)
- [x] Keep multipart parser and conversion logic unchanged
+- [x] Keep multipart parser and conversion logic unchanged
+- [x] Add portable Node API entrypoint (`server.js`) with direct route dispatch
+- [x] Add health endpoint (`/healthz`) and request/response compatibility shim
+
 ### Phase 3: Storage + Queue Refactor
-- [ ] Replace @vercel/blob usage with MinIO (S3 API)
-- [ ] Replace @vercel/kv usage with Redis client
-- [ ] Keep job schema and status flow compatible
-- [ ] Keep idempotency and lock semantics
+- [x] Replace @vercel/blob usage with MinIO (S3 API)
+- [x] Replace @vercel/kv usage with Redis client
+- [x] Keep job schema and status flow compatible
+- [x] Keep idempotency and lock semantics
 
 ### Phase 4: Worker Split
-- [ ] Create dedicated worker process for runJob flow
-- [ ] API enqueues and returns job metadata
-- [ ] Worker executes decode, writes result object, updates job status
-- [ ] Add retry/backoff and lock expiration handling
+- [x] Create dedicated worker process for runJob flow
+- [x] API enqueues and returns job metadata
+- [x] Worker executes decode, writes result object, updates job status
+- [x] Add retry/backoff and lock expiration handling
 
 ### Phase 5: Containerization and Coolify Deploy
-- [ ] Add Dockerfile for API
-- [ ] Add Dockerfile or command profile for worker
-- [ ] Define env vars for API/worker/Redis/MinIO
-- [ ] Deploy services in Coolify with persistent volumes for MinIO
-- [ ] Configure domain routing to API service
+- [x] Add Dockerfile for API
+- [x] Add Dockerfile or command profile for worker
+- [x] Define env vars for API/worker/Redis/MinIO
+- [x] Create compose blueprint for api + worker + redis + minio
+- [x] Document domain routing expectations for API service
 
 ### Phase 6: Validation
 - [ ] Small sync decode test
@@ -65,6 +68,9 @@ git status
 - [ ] Status polling and result download test
 - [ ] Retry behavior test
 - [ ] Lock contention test
+- [x] API boot check (`npm run api`)
+- [x] Worker boot path check (missing env now fails fast and exits)
+- [x] Worker dependency path check (with env set, reaches Redis connect)
 
 ## Required Environment Variables (Target)
 - NODE_ENV
@@ -87,3 +93,4 @@ git status
 ## Notes
 - Do not remove existing decode algorithm; only migrate runtime and infrastructure.
 - Keep API contract stable for frontend compatibility.
+- `.env.local` and `.vercel/` are local-only artifacts and should remain uncommitted.
