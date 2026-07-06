@@ -16,7 +16,7 @@ function setCors(res) {
 }
 
 function getApiOrigin(req) {
-  const proto = req.headers['x-forwarded-proto'] || 'https';
+  const proto = 'https';
   const host = req.headers['x-forwarded-host'] || req.headers.host;
   return `${proto}://${host}`;
 }
