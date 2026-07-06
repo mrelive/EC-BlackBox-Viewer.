@@ -1,8 +1,8 @@
-import { FlightLogParser } from "./flightlog_parser";
-import { FlightLogEvent } from "./flightlog_fielddefs";
-import { IMU } from "./imu";
-import { ArrayDataStream } from "./datastream";
-import "./decoders";
+import { FlightLogParser } from "./flightlog_parser.js";
+import { FlightLogEvent } from "./flightlog_fielddefs.js";
+import { IMU } from "./imu.js";
+import { ArrayDataStream } from "./datastream.js";
+import "./decoders.js";
 
 export function FlightLogIndex(logData) {
   //Private:

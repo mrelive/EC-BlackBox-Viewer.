@@ -1,6 +1,6 @@
-import { FlightLogIndex } from "./flightlog_index";
-import { FlightLogParser } from "./flightlog_parser";
-import { GPS_transform } from "./gps_transform";
+import { FlightLogIndex } from "./flightlog_index.js";
+import { FlightLogParser } from "./flightlog_parser.js";
+import { GPS_transform } from "./gps_transform.js";
 import {
   MAX_MOTOR_NUMBER,
   DSHOT_MIN_VALUE,
@@ -9,16 +9,16 @@ import {
   AXIS,
   FAST_PROTOCOL,
   SUPER_EXPO_YAW,
-} from "./flightlog_fielddefs";
-import { IMU } from "./imu";
-import { FIFOCache } from "./cache";
+} from "./flightlog_fielddefs.js";
+import { IMU } from "./imu.js";
+import { FIFOCache } from "./cache.js";
 import {
   binarySearchOrPrevious,
   binarySearchOrNext,
   constrain,
   validate,
   firmwareGreaterOrEqual,
-} from "./tools";
+} from "./tools.js";
 
 /**
  * Uses a FlightLogParser to provide on-demand parsing (and caching) of the flight data log.

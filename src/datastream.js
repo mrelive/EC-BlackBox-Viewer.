@@ -1,4 +1,4 @@
-import { signExtend16Bit, signExtend8Bit } from "./tools";
+import { signExtend16Bit, signExtend8Bit } from "./tools.js";
 
 let EOF = -1;
 

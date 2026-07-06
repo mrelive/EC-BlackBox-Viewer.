@@ -5,8 +5,8 @@ import {
   FLIGHT_LOG_FLIGHT_STATE_NAME,
   FLIGHT_LOG_FAILSAFE_PHASE_NAME,
   FFT_CALC_STEPS,
-} from "./flightlog_fielddefs";
-import { formatTime } from "./tools";
+} from "./flightlog_fielddefs.js";
+import { formatTime } from "./tools.js";
 
 export function FlightLogFieldPresenter() {
   // this is intentional

@@ -1,7 +1,7 @@
-import { FlightLogFieldPresenter } from "./flightlog_fields_presenter";
-import { adjustFieldDefsList, FlightLogEvent } from "./flightlog_fielddefs";
-import { ArrayDataStream } from "./datastream";
-import "./decoders";
+import { FlightLogFieldPresenter } from "./flightlog_fields_presenter.js";
+import { adjustFieldDefsList, FlightLogEvent } from "./flightlog_fielddefs.js";
+import { ArrayDataStream } from "./datastream.js";
+import "./decoders.js";
 import {
   hexToFloat,
   uint32ToFloat,
@@ -10,7 +10,7 @@ import {
   signExtend14Bit,
   stringHasComma,
   parseCommaSeparatedString,
-} from "./tools";
+} from "./tools.js";
 
 globalThis.FIRMWARE_TYPE_UNKNOWN = 0;
 globalThis.FIRMWARE_TYPE_BASEFLIGHT = 1;
